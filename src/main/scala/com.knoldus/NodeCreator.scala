@@ -9,7 +9,7 @@ object SupervisorNode extends App {
   def startCluster(ports: List[Int]): Unit = ports.foreach { port =>
     val config = ConfigFactory.parseString(
       s"""
-         |akka.remote.netty.tcp.port = $port
+         |akka.remote.artery.canonical.port = $port
          """.stripMargin)
       .withFallback(ConfigFactory.load("clusterErrorFinder.conf"))
 
@@ -19,7 +19,7 @@ object SupervisorNode extends App {
     supervisor ! DirectoryPath("./src/main/resources/LogFiles")
   }
 
-  startCluster(List(6666))
+  startCluster(List(5000))
 }
 
 object workerNode extends App {
@@ -95,5 +95,5 @@ object workerNode3 extends App {
 
   }
 
-  startCluster(List(2556))
+  startCluster(List(2559))
 }

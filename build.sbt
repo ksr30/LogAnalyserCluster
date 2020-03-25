@@ -4,7 +4,7 @@ version := "0.1"
 
 scalaVersion := "2.12.8"
 
-lazy val akkaVersion = "2.5.21"
+lazy val akkaVersion = "2.6.4"
 lazy val protobufVersion = "3.6.1"
 
 libraryDependencies ++= Seq(
@@ -14,4 +14,6 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-cluster-sharding" % akkaVersion,
   "com.typesafe.akka" %% "akka-cluster-tools" % akkaVersion
 )
+
+libraryDependencies += "com.swissborg" %% "lithium" % "0.11.0"
 
